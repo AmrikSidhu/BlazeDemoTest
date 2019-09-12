@@ -33,23 +33,11 @@ class BlazeDemoTest {
 
 	@Test
 	void departureCities() {
-		List<WebElement> departureCities = driver.findElements(By.name("fromPort"));
+		WebElement departureCities = driver.findElement(By.name("fromPort"));
 		int count = 0;
-		for(int i=0;i < departureCities.size();i++)
-		{
-			WebElement link = departureCities.get(i);
-			int total = departureCities.size();
-			String linkText = link.getText();
-			
-			System.out.println("cities: "+linkText);
-			
-			
-			
-	 		assertEquals(1, total);
-	 		
-	 		
-	 	
-		}
+		List<WebElement> departureCitiesList = departureCities.findElements(By.tagName("option"));
+		int total = departureCitiesList.size();
+		assertEquals(7,total);
 	}
 
 }
